@@ -12,11 +12,34 @@ public class EmployeePayrollData {
     }
 
     // Getters
-    public int getId() { return id; }
-    public String getName() { return name; }
-    public long getSalary() { return salary; }
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public long getSalary() {
+        return salary;
+    }
 
     // Setters
-    public void setName(String name) { this.name = name; }
-    public void setSalary(long salary) { this.salary = salary; }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSalary(long salary) {
+        this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "EmployeePayrollData{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", salary=" + salary +
+                '}';
+    }
 }
+

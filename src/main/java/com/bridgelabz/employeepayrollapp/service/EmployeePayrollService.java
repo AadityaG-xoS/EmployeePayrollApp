@@ -26,21 +26,21 @@ public class EmployeePayrollService implements IEmployeePayrollService {
     }
 
     @Override
-    public EmployeePayrollData createEmployeePayrollData(EmployeePayrollDTO empPayrollDTO) {
-        int id = employeeList.size() + 1;
-        EmployeePayrollData newEmp = new EmployeePayrollData(id, empPayrollDTO.name, empPayrollDTO.salary);
-        employeeList.add(newEmp);
-        return newEmp;
+    public EmployeePayrollData createEmployeePayrollData(EmployeePayrollDTO dto) {
+        int newId = employeeList.size() + 1;
+        EmployeePayrollData emp = new EmployeePayrollData(newId, dto.name, dto.salary);
+        employeeList.add(emp);
+        return emp;
     }
 
     @Override
-    public EmployeePayrollData updateEmployeePayrollData(int empId, EmployeePayrollDTO empPayrollDTO) {
-        EmployeePayrollData empData = getEmployeePayrollDataById(empId);
-        if (empData != null) {
-            empData.setName(empPayrollDTO.name);
-            empData.setSalary(empPayrollDTO.salary);
+    public EmployeePayrollData updateEmployeePayrollData(int empId, EmployeePayrollDTO dto) {
+        EmployeePayrollData emp = getEmployeePayrollDataById(empId);
+        if (emp != null) {
+            emp.setName(dto.name);
+            emp.setSalary(dto.salary);
         }
-        return empData;
+        return emp;
     }
 
     @Override
@@ -48,3 +48,4 @@ public class EmployeePayrollService implements IEmployeePayrollService {
         employeeList.removeIf(emp -> emp.getId() == empId);
     }
 }
+
